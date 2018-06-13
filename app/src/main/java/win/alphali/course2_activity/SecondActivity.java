@@ -7,7 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-public class SecondActivity extends AppCompatActivity {
+public class SecondActivity extends BaseActivity {
 
     //重载返回方法的话，在第二个里修改
 
@@ -25,6 +25,7 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.second_layout);
 
+        Log.e("SECOND ACTIVITY", "Task id is"+getTaskId() );
 //        Intent intent=getIntent();
 //        String getdata = intent.getStringExtra("extra_data");
 //        Log.e("Second Activity", getdata);
@@ -33,10 +34,8 @@ public class SecondActivity extends AppCompatActivity {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent();
-                intent.putExtra("data_return","This is RETURN MESSAGE");
-                setResult(RESULT_OK,intent);
-                finish();
+               Intent intent = new Intent(SecondActivity.this,ThirdActivity.class);
+               startActivity(intent);
             }
         });
 

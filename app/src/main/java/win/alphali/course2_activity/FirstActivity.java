@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-public class FirstActivity extends AppCompatActivity {
+public class FirstActivity extends BaseActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main,menu);
@@ -50,7 +50,7 @@ public class FirstActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.first_layout);
-
+        Log.e("FIRST ACTIVITY TASK ID","Task id is"+getTaskId());
         Button button1=(Button) findViewById(R.id.button_1);
 
         button1.setOnClickListener(new View.OnClickListener() {
@@ -61,8 +61,8 @@ public class FirstActivity extends AppCompatActivity {
 
 
                 //显式的intent
-                Intent intent = new Intent(FirstActivity.this,SecondActivity.class);
-                startActivityForResult(intent,1);
+//                Intent intent = new Intent(FirstActivity.this,SecondActivity.class);
+//                startActivityForResult(intent,1);
 
 //                String data = "This is First Activity Message";
 //               intent.putExtra("extra_data",data);
@@ -76,6 +76,9 @@ public class FirstActivity extends AppCompatActivity {
 //                Intent browserintent = new Intent(Intent.ACTION_VIEW);
 //                browserintent.setData(Uri.parse("http://www.baidu.com"));
                 //browserintent.setData(Uri.parse("tel:10086"));
+
+                //调用自己玩
+                Intent intent = new Intent(FirstActivity.this,SecondActivity.class);
                 startActivity(intent);
 
             }
